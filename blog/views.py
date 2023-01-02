@@ -1,6 +1,7 @@
 from .forms import BlogForm, CommentForm
 from django.views import generic
 from .models import Blog, Comment
+
 # Create your views here.
 
 class BlogList(generic.ListView):
@@ -28,4 +29,5 @@ class BlogUpdateView(generic.UpdateView):
 class BlogDeleteView(generic.DeleteView):
     model = Blog
     template_name = "delete.html"
+
 

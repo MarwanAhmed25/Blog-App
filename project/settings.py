@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
 
     #local
+    'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
-    'blog.apps.BlogConfig'
+    
 ]
 
 MIDDLEWARE = [
