@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Update Page {% endblock %}
+
+{%block content%}
+<h1>Update User</h1>
+<form method='POST' enctype= 'multipart/form-data'>
+{% csrf_token %}
+{{form|crispy}}
+
+<input type='submit' class='btn btn-success' value='Update'>
+
+</form>
+{% endblock %}

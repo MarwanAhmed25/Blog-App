@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block title%} Delete Page {%endblock%}
+
+{% block content%} 
+
+<form method='post'>
+    {% csrf_token %}
+      
+    <input type='submit' value='delete'>
+
+{%endblock%}
