@@ -17,4 +17,4 @@ def home(request):
 
     
 
-    return render(request, 'base_generic.html', {'teachers': teachers, 'blogs':blogs})
+    return render(request, '_base.html', {'teachers': teachers, 'blogs':blogs})

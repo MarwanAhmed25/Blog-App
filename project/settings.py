@@ -19,11 +19,18 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = "blog:list"
-LOGOUT_REDIRECT_URL = "blog:list"
-
+#LOGOUT_REDIRECT_URL = "blog:list"
+ACCOUNT_LOGOUT_REDIRECT = "blog:list"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False # new
+ACCOUNT_AUTHENTICATION_METHOD = "email" # new
+ACCOUNT_EMAIL_REQUIRED = True # new
+ACCOUNT_UNIQUE_EMAIL = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -33,17 +40,31 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
 
     #3td
     "django_bootstrap5",
     "crispy_forms", 
     "crispy_bootstrap5",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 
     #local
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
     
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
