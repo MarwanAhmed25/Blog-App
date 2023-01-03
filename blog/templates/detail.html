@@ -1,8 +1,10 @@
-{% extends 'base_generic.html' %}
+{% extends '_base.html' %}
 
 {% block title%} Detail Page {%endblock%}
 
 {% block content%} 
-
-{{object}}
-{%endblock%}
+{{blog}}
+{% for comment in blog.comments.all %}
+    {{comment}}
+{% endfor %}
+{% endblock%}

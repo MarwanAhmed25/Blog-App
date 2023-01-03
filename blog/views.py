@@ -1,16 +1,18 @@
 from .forms import BlogForm, CommentForm
 from django.views import generic
-from .models import Blog, Comment
+from .models import Blog
 
 # Create your views here.
 
 class BlogList(generic.ListView):
     model = Blog
+    context_object_name = 'blog_list'
     template_name = 'list.html'
 
 
 class BlogDetail(generic.DetailView):
     model = Blog
+    context_object_name = 'blog'
     template_name = 'detail.html'
     
 

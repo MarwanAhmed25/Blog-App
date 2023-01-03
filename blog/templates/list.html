@@ -1,4 +1,4 @@
-{% extends 'base_generic.html' %}
+{% extends '_base.html' %}
 
 {% block search%}
 
@@ -9,12 +9,13 @@
 
 {% endblock %}
 
-{% block title%} List Page {%endblock%}
+{% block title%} Blogs Page {% endblock %}
 
 {% block content%} 
 <ol>
-{% for blog in object_list %}
-    <li>{{blog}}</li>
+  {% for blog in blog_list %}
+    <a href="{% url 'blog:detail' blog.id %}"><li>{{blog}}</li><a/>
+    
 {% endfor %}
 </ol>
-{%endblock%}
+{% endblock %}

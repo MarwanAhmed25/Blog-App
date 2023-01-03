@@ -2,6 +2,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .models import Teacher
 # Create your views here.
 
 
@@ -22,16 +23,21 @@ class CustomUserUpdateView(generic.UpdateView):
     success_url = reverse_lazy('home')
     template_name = 'update.html'
 
+def t():
+    print('nnnnnnnnnnnnnnnnnnnnnnnnnnn')
 
 #CustomUserList, CustomUserDetail, CustomUserDelete
-class CustomUserListView(generic.ListView):
-    model = get_user_model()
-    template_name = "list.html"
+class TeacherListView(generic.ListView):
+    
+    model = Teacher
+    context_object_name = 'teacher_list'
+    template_name = "teacher_list.html"
 
 
-class CustomUserDetailView(generic.DetailView):
-    model = get_user_model()
-    template_name = "detail.html"
+class TeacherDetailView(generic.DetailView):
+    model = Teacher
+    context_object_name = 'teacher'
+    template_name = "teacher_detail.html"
 
 
 class CustomUserDeleteView(generic.DeleteView):

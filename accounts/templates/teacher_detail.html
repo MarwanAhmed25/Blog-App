@@ -1,0 +1,10 @@
+{% extends '_base.html' %}
+
+{% block title%} Detail Page {% endblock%}
+
+{% block content%} 
+{{teacher}}
+{% for review in teacher.reviewed.all %}
+    {{review}}
+{% endfor %}
+{% endblock%}

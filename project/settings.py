@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
 
+    #local
+    'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig',
+
     #3td
     "django_bootstrap5",
     "crispy_forms", 
@@ -50,9 +54,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
 
-    #local
-    'blog.apps.BlogConfig',
-    'accounts.apps.AccountsConfig',
+    
     
 ]
 

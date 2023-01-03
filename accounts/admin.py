@@ -17,10 +17,15 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
+################## Teachers #########################
+
+class ReviewAdmin(admin.TabularInline):
+    model = Review
 
 class TeacherAdmin(admin.ModelAdmin):
+    inlines = [ ReviewAdmin ]
     model = Teacher
     exclude = ('slug',)
 
-admin.site.register(Review)
+
 admin.site.register(Teacher, TeacherAdmin)
