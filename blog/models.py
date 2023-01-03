@@ -10,7 +10,7 @@ class Blog(models.Model):
     subject = models.CharField(_("subject"), max_length=250)
     title = models.CharField(_("title"), max_length=250, unique=True)
     body = models.TextField(_("body"))
-    teacher = models.ForeignKey(Teacher, verbose_name=_("teacher"), on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, verbose_name=_("teacher"), related_name='teacher_blogs',on_delete=models.CASCADE)
     created_at = models.DateTimeField(_("created_at"), auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(_("updated_at"), auto_now=True, auto_now_add=False)
     
@@ -25,7 +25,7 @@ class Blog(models.Model):
 
 class Comment(models.Model):
     body = models.TextField(_("body"))
-    user = models.ForeignKey(CustomUser, verbose_name=_("teacher"), on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, verbose_name=_("teacher") ,on_delete=models.CASCADE)
     blog = models.ForeignKey(Blog, verbose_name=_("blog"), related_name='comments',on_delete=models.CASCADE)
     created_at = models.DateTimeField(_("created_at"), auto_now=True, auto_now_add=False)
     

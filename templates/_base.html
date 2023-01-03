@@ -57,6 +57,23 @@
 
 {% block content %}
 <img src='{% static 'images/blog.jpeg' %}' id='home_image'>
+<div>
+<h1>Top Teachers</h1>
+{% for teacher in teacher_list %}
+  <div>{{teacher}}</div>
+{% endfor %}
+</div>
+
+<div>
+  <h1>Recommanded Blogs</h1>
+  {% for teacher in teacher_list %}
+    {% for blog in teacher.teacher_blogs.all %}
+      <div>{{blog}} and author is <span>{{blog.teacher}}</span></div>
+    {% endfor %}
+  {% endfor %}
+  </div>
+
+
 {% endblock content %}
 
 

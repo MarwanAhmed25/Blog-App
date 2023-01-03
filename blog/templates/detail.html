@@ -1,9 +1,9 @@
 {% extends '_base.html' %}
 
-{% block title%} Detail Page {%endblock%}
+{% block title%} Blog Page {%endblock%}
 
 {% block content%} 
-{{blog}}
+{{blog.body}}
 {% for comment in blog.comments.all %}
     {{comment}}
 {% endfor %}
